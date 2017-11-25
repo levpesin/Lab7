@@ -74,6 +74,35 @@ public class Colosseum {
      */
     public static Pokemon buildPokemon() {
         Pokemon tempPokemon = new Pokemon();
+        System.out.println("Please Name Your Pokemon: ");
+        myScan = new Scanner(System.in);
+        String name = myScan.nextLine();
+        System.out.println("How many hit points will it have? (1-50): ");
+        myScan = new Scanner(System.in);
+        int hitPoints = myScan.nextInt();
+        for (; hitPoints < 1 || hitPoints > MAX_HIT_POINTS;) {
+            System.out.println("Sorry. Hit points must be between 1 and 50: ");
+            myScan = new Scanner(System.in);
+            hitPoints = myScan.nextInt();
+        }
+        System.out.println("Split fifty points between attack level and defense level");
+        System.out.println("Enter your attack level (1-49): ");
+        myScan = new Scanner(System.in);
+        int attack = myScan.nextInt();
+        for (; attack < 1 || attack > MAX_HIT_POINTS - 1;) {
+            System.out.println("Sorry. The attack level must be between 1 and 49: ");
+            myScan = new Scanner(System.in);
+            attack = myScan.nextInt();
+        }
+        System.out.println("Enter your defense level (1-" + (MAX_HIT_POINTS - hitPoints) + "): ");
+        myScan = new Scanner(System.in);
+        int deffence = myScan.nextInt();
+        for (; deffence < 1 || deffence > MAX_HIT_POINTS - attack + 1;) {
+            System.out.println("Sorry. The deffence level must be between 1 and "
+            + (MAX_HIT_POINTS - hitPoints) + "): ");
+            myScan = new Scanner(System.in);
+            deffence = myScan.nextInt();
+        }
         return tempPokemon;
     }
 
